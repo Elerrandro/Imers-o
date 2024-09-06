@@ -7,7 +7,7 @@ function Pesquisar() {
     // Inicializa uma string vazia para armazenar os resultados
     let resultados = "";
     let nome = "";
-    let genero = "";
+    let abreviacao = "";
     
     if (!campoPesquisar) {
         section.innerHTML = "<p><b>POR FAVOR DIGITE ALGUM JOGO!</b></p>"
@@ -17,16 +17,15 @@ function Pesquisar() {
     // Itera sobre os dados dos jogos e constrói a string HTML
     for (let dado of jogos) {
         nome = dado.nome.toLowerCase();
-        genero = dado.genero.toLowerCase();
+        abreviacao = dado.abreviacao.toLowerCase();
         // Se nome estiver incluido em campoPesquisar então...
-        if (nome.includes(campoPesquisar) || (genero.includes(campoPesquisar))) {
+        if (nome.includes(campoPesquisar) || (abreviacao.includes(campoPesquisar))) {
         console.log(nome.includes(campoPesquisar));
         // Cria um novo elemento HTML para cada jogo
         resultados += `
             <div class="item-resultado">
                 <h2>${dado.nome}</h2>
                 <p class="descricao-meta">${dado.descricao}</p>
-                <p><b>Gênero: </b>${dado.genero}</p>
                 <a href="${dado.site}" target="_blank"><b>Site do Jogo</b></a>
             </div>
         `};
